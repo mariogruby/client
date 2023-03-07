@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# La Diaria - Front
+## About us
+------------
+## Description 
+La Diaria es una plataforma de gestion de tareas para parejas, interactiva y con concepto de juego, con la finalidad de que la pareja se asignen  una serie de tareas domesticas
+y a medida que se vayan marcando como completadas se
+iran sumando cierta cantidad de puntos dependiento de 
+la tarea.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+las tareas del juego tienen una duracion de un mes y
+al final de cada mes se cuentan el total de puntos de
+cada de  los dos miembros y quien obtenga mas puntos obtendra
+un "trofeo" que sera una recompensa previamente definida por la pareja al iniciar, y el que haya obtenido menos puntos tendrá que  cumplir esa recompensa.
 
-## Available Scripts
+Tambien tendra otro sistema de obtencion de puntos que serán 
+mini juegos de pareja.
 
-In the project directory, you can run:
+Cada jugador tendra una vista con los resultados de los minijuegos, victorias o derrotas o conflictos aún por resolver.
 
-### `npm start`
+--------------
+## Deployment 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Puede verificar la applicacion completamente implementada  [aqui]()
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Work Structure
+Usamos la plataforma [Trello](https://trello.com/b/hpGY6UqD/ladiaria) para la distribución de tareas
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Installation Guide
+- Bifurcar este repositorio
+- Clonar este repositorio
+````
+$ cd client 
+$ npm install
+$ npm start 
+````
+## Routes
+| Route                | Privacy         | Renders                  |
+| -------------------- | :-------------: | ------------------------ |
+| /                    | public          | Getstart                 |
+| /signup              | public          | SignupPage               |
+| /login               | public          | LoginPage                |
+| /profile               | private         | ProfileUser              |
+| /profile/task          | private    |UserTask
+| Profile/task/:id    | private          | task & form task    |
+| /profile/minigames | private         | gamesPages |
+| /profile/minigames/:id | private         | game selected |
+<!-- | /all-orders          | private (admin) | AllOrdersPage            |
+| /all-orders/:id      | private (admin) | EditOrderPage            |
+| /profile             | private (user)  | UserProfilePage          | -->
+-------------------------------------------------------------
+## Components 
+- signup
+- login
+- getStart
+- navbar
+- footer
+- formTask
+- EditTask
+- Games
+- errorPage
+-------------------------------
