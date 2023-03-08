@@ -1,4 +1,5 @@
 import "./ProfilePage.css";
+import { Link } from "react-router-dom";
 
 function ProfilePage() {
   return (
