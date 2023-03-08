@@ -5,19 +5,17 @@ import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
-
-import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
+import GetStarted from "./pages/GetStarted/GetStarted";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      {/* <Navbar /> */}
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
-
+        <Route path="/home" element={<HomePage />}/>
         <Route
           path="/profile"
           element={
@@ -43,6 +41,7 @@ function App() {
             </IsAnon>
           }
         />
+        <Route path="/" element={<GetStarted />} />
       </Routes>
     </div>
   );
