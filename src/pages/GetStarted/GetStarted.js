@@ -5,7 +5,7 @@ import loveit from "../../img/loveit.png"
 import "./GetStarted.css";
 
 export default function GetStarted(){
-    // *********************************************
+
     return(
         <div className="row gs-container">
             <div className="col-12 gs-space-container gs-upper">
