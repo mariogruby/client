@@ -41,9 +41,9 @@ $ npm start
 | /login               | public          | LoginPage                |
 | /profile               | private         | ProfileUser              |
 | /profile/task          | private    |UserTask
-| Profile/task/:id    | private          | task & form task    |
-| /profile/minigames | private         | gamesPages |
-| /profile/minigames/:id | private         | game selected |
+| /task/:id    | private          | task & form task    |
+| /minigames | private         | gamesPages |
+| /minigames/:id | private         | game selected |
 <!-- | /all-orders          | private (admin) | AllOrdersPage            |
 | /all-orders/:id      | private (admin) | EditOrderPage            |
 | /profile             | private (user)  | UserProfilePage          | -->
