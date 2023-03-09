@@ -1,9 +1,37 @@
 .gs-container{
     height: 100vh;
+    background-color: #F4EEE2;
 }
 
 .gs-space-container{
     height: 50%;
 }
 
+.gs-description{
+    max-width: 295px;
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 10px;
+}
+
+.gs-img{
+    width: 100%;
+}
+
+.gs-upper{
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+    height: 250px;
+}
+
+.gs-carousel{
+    top: 300px;
+}
 
