@@ -9,8 +9,6 @@ export default function GetStarted(){
     return(
         <div className="row gs-container">
             <div className="col-12 gs-space-container gs-upper">
-                {/* <img className="gs-img" src="https://img.freepik.com/free-vector/flat-couples-kissing-illustration_52683-57760.jpg?w=1380&t=st=1678375789~exp=1678376389~hmac=ab9582f3f42efd159ce062ff9b81ce8f19d5e519a2231714e510ece6cd456574"/> */}
-                {/* <img className="logo" src={logo}/> */}
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators gs-carousel">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -18,15 +16,15 @@ export default function GetStarted(){
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
   <div class="carousel-inner">
-    <div class="carousel-item active">
+    <div class="carousel-item active" data-bs-interval="1400">
     <div className="w-100 d-block">
       <img src={logo} class="logo" alt="..."/>
     </div>
     </div>
-    <div class="carousel-item">
+    <div class="carousel-item" data-bs-interval="1400">
       <img src={cooking} class="logo" alt="..."/>
     </div>
-    <div class="carousel-item">
+    <div class="carousel-item" data-bs-interval="1400">
       <img src={loveit} class="logo" alt="..."/>
     </div>
   </div>

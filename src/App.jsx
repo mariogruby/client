@@ -24,7 +24,7 @@ function App() {
       {/* <Navbar /> */}
 
       <Routes>
-        <Route path="/home" element={<HomePage />}/>
+        <Route path="/home" element={<IsPrivate><HomePage /></IsPrivate>}/>
         <Route
           path="/profile"
           element={
@@ -122,7 +122,7 @@ function App() {
             </IsAnon>
           }
         />
-        <Route path="/" element={<GetStarted />} />
+        <Route path="/" element={<IsAnon><GetStarted /></IsAnon>} />
       </Routes>
     </div>
   );

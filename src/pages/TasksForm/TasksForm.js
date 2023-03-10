@@ -1,8 +1,11 @@
 import Menu from "../../components/Menu/Menu"
 import Navbar from "../../components/Navbar/Navbar"
 import { Link } from "react-router-dom"
+import { useEffect } from "react"
+
 
 export default function EditSettings(){
+
     return (
         <>
         <Navbar/>
