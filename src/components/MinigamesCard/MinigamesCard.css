@@ -1,0 +1,21 @@
+.chess-logo{
+    height: 280px;
+}
+
+.minigames-card{
+    background-color: #ECB22C;
+    border-radius: 3%;
+    height: 180px;
+    width: 90%;
+    max-width: 351px
+}
+
+.mini-btn-container{
+    padding-left: 1.5rem;
+}
+
+.text-mini-btn{
+        line-height: 30px;
+        width: 146px;
+    
+}

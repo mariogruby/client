@@ -1,6 +1,7 @@
 .gs-container{
     height: 100vh;
     background-color: #F4EEE2;
+    --bs-gutter-x: 0px
 }
 
 .gs-space-container{
@@ -9,6 +10,7 @@
 
 .gs-description{
     max-width: 295px;
+
 }
 
 .carousel-indicators [data-bs-target] {
@@ -24,7 +26,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 .logo{
@@ -34,4 +36,6 @@
 .gs-carousel{
     top: 300px;
 }
+
+
 

@@ -1,0 +1,12 @@
+.cm-nav{
+    height: 100px;
+    --bs-gutter-x: 0px
+}
+
+.user-logo{
+    fill: #ECB22C;
+}
+
+.user-logo:hover{
+    fill: #3CB38D;
+}

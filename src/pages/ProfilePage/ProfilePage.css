@@ -1,0 +1,22 @@
+.p-container{
+    height: 100vh;
+    background-color: #521254;
+}
+.cm-nav-trophy, .nav-trophy, .nav-settings{
+    height: 100%;
+    --bs-gutter-x: 0px
+}
+
+.nav-trophy{
+    font-size: 2em;
+}
+.pp-mini-container{
+    height: 45%;
+}
+
+.alert-pareja{
+    position: absolute;
+    z-index: 20;
+    width: 388px;
+}
+
