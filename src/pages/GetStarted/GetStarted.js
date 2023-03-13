@@ -9,23 +9,23 @@ export default function GetStarted(){
     return(
         <div className="row gs-container">
             <div className="col-12 gs-space-container gs-upper">
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators gs-carousel">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+<div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
+  <div className="carousel-indicators gs-carousel">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="1400">
+  <div className="carousel-inner">
+    <div className="carousel-item active" data-bs-interval="1400">
     <div className="w-100 d-block">
-      <img src={logo} class="logo" alt="..."/>
+      <img src={logo} className="logo" alt="..."/>
     </div>
     </div>
-    <div class="carousel-item" data-bs-interval="1400">
-      <img src={cooking} class="logo" alt="..."/>
+    <div className="carousel-item" data-bs-interval="1400">
+      <img src={cooking} className="logo" alt="..."/>
     </div>
-    <div class="carousel-item" data-bs-interval="1400">
-      <img src={loveit} class="logo" alt="..."/>
+    <div className="carousel-item" data-bs-interval="1400">
+      <img src={loveit} className="logo" alt="..."/>
     </div>
   </div>
 </div>
@@ -36,7 +36,7 @@ export default function GetStarted(){
                 <div className="gs-description text-secondary">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</div>
                 </div>
                 <div className="...">
-                <Link to={"/signup"}><button className="btn btn-primary mb-2 mt-4">EMPEZAR AHORA</button></Link>
+                <Link to={"/signup"}><button className="btn btn-primary mb-3 mt-4">EMPEZAR AHORA</button></Link>
                 <Link to={"/login"}><p className="text-primary">¿Ya tienes una cuenta?</p></Link>
                 </div>
             </div>

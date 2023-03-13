@@ -47,14 +47,15 @@ function LoginPage() {
 
   return (
     <>
-    <form onSubmit={handleLoginSubmit}>
+    <div className="su-main-container">
+    <form onSubmit={handleLoginSubmit} className="auth-containers">
     <div className='bold-line'></div>
     <div className='su-container'>
       <div className="su-img-container window">
         <Link to={"/"}>
         <img src={logo} 
         // className={`su-img ${bounce ? "animate__animated animate__rubberBand" : null}`}
-        className="su-img animate__animated animate__backInDown"
+        className="su-img animate__animated animate__zoomIn"
         /></Link>
       </div>
       <div className='window'>
@@ -75,6 +76,7 @@ function LoginPage() {
       </div>
     </div>
     </form>
+    </div>
     </>
   );
 }

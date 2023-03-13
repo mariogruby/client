@@ -59,13 +59,13 @@ function SignupPage() {
   return (
 <>
 <div className="su-main-container">
-<form onSubmit={handleSignupSubmit}>
+<form onSubmit={handleSignupSubmit} className="auth-containers">
 <div className='bold-line'></div>
 <div className='su-container'>
   <div className="su-img-container window">
     <Link to={"/"}><img src={logo} 
     // className={`su-img ${bounce ? "animate__animated animate__rubberBand" : null}`}
-    className="su-img animate__animated animate__backInDown"
+    className="su-img animate__animated animate__zoomIn"
     /></Link>
   </div>
   <div className='window'>

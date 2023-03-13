@@ -1,0 +1,29 @@
+.menu-bottom{
+    background-color: #502760
+    ;
+    height: 50px;
+    width: 27%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    overflow: hidden;
+    perspective: 1px;
+    opacity: 0.7;
+}
+
+.link-menu{
+    transform: scale(0.8);
+    fill: white;
+}
+
+.link-menu:hover{
+    fill: #3CB38D;
+}
+
+@media (max-width: 500px) {
+    .menu-bottom{
+        width: 80%;
+    }
+}
+

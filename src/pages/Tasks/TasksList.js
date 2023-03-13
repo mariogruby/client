@@ -29,13 +29,13 @@ export default function TaskList(){
     }
 
 
-    useEffect(()=>{
-        exampleService.getAll("640a00be23f7e6dfd02e3e50")
-        .then((result)=>{
-            setTasks(result.data)
-        })
-        .catch((err)=>{console.log(err)})
-    },[])
+    // useEffect(()=>{
+    //     exampleService.getAll("640a00be23f7e6dfd02e3e50")
+    //     .then((result)=>{
+    //         setTasks(result.data)
+    //     })
+    //     .catch((err)=>{console.log(err)})
+    // },[])
 
 
     return (

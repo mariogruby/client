@@ -1,0 +1,77 @@
+.tasksFormContainer{
+    height: 75%;
+}
+
+.questions-container {
+    height: 85%;
+    width: 25%;
+    background-color: #502760;
+}
+
+.tasks-examples-container{
+    width: 100%;
+}
+
+.sun-tasks-form{
+    width: 250px;
+}
+
+.tasks-form-button{
+    width: 25%;
+}
+
+.tasks-form-button:hover{
+    background-color: #ECB22C;
+    cursor: pointer;
+}
+
+.btn-form-tasks{
+margin-right: 5px;
+}
+
+.p-questions-tasks {
+    color: white;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.inputPointsContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-points{
+    width: 70%;
+}
+
+.dancing-skeleton{
+    height: 80px;
+}
+
+@media (max-width: 500px) {
+    .questions-container{
+        width: 77%;
+    }
+    .tasks-examples-container{
+        width: 99%;
+    }
+    .tasksFormContainer{
+        height: 80%;
+    }
+    .tasks-form-button{
+        width: 80%;
+    }
+    .sun-tasks-form{
+        width: 160px;
+    }
+    .dancing-skeleton{
+        height: 25px;
+    }
+}
