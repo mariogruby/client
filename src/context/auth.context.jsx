@@ -6,7 +6,10 @@ const AuthContext = React.createContext();
 function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [coupleCreated , setCoupleCreated] = useState(false)
+  const [hasBeenGreeted, setHasBeenGreeted] = useState(false)
   const [user, setUser] = useState(null);
+  const [count, setCount] = useState(0)
 
   const storeToken = (token) => {
     localStorage.setItem("authToken", token);
@@ -73,8 +76,15 @@ function AuthProviderWrapper(props) {
     <AuthContext.Provider
       value={{
         isLoggedIn,
+        coupleCreated,
+        setCount,
+        count,
+        setCoupleCreated,
+        setHasBeenGreeted,
+        hasBeenGreeted,
         isLoading,
         user,
+        setUser,
         storeToken,
         authenticateUser,
         logOutUser,

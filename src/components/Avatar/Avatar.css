@@ -1,0 +1,27 @@
+.avatar-img{
+    object-fit: cover;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+}
+
+.avatar-text{
+    color: white;
+}
+
+.points{
+    font-weight: bolder;
+    font-size: 3em;
+}
+
+.sparks{
+    height: 160px;
+}
+
+.spark-r{
+    rotate: -14deg
+}
+
+.spark-l{
+    rotate: 14deg;
+}

@@ -10,21 +10,35 @@ import IsAnon from "./components/IsAnon/IsAnon";
 import GetStarted from "./pages/GetStarted/GetStarted";
 import Leaderboard from "./pages/Leaderboard/Leaderboard";
 import Settings from "./pages/Settings/Settings";
-import TasksForm from "./pages/TasksForm/TasksForm";
+import TasksFormPage from "./pages/TasksForm/TasksFormPage";
 import TasksPointsForm from "./pages/TasksForm/TasksPointsForm";
 import Ruleta from "./pages/Minijuegos/Ruleta";
 import CuantoConoces from "./pages/Minijuegos/CuantoConoces"
 import QuePrefiere from "./pages/Minijuegos/QuePrefiere";
 import Minijuegos from "./pages/Minijuegos/Minijuegos";
 import TasksList from "./pages/Tasks/TasksList"
+import { useLocation } from "react-router-dom";
+import { useEffect, useContext } from "react";
+import { AuthContext } from "./context/auth.context";
 
 function App() {
+  const { coupleCreated, setCoupleCreated, hasBeenGreeted, setHasBeenGreeted } = useContext(AuthContext);
+  let location = useLocation();
+
+  useEffect(()=>{
+    if(location.pathname !== "/profile" && coupleCreated){
+      setCoupleCreated(false)
+    }
+    if(hasBeenGreeted && location.pathname !== "/profile"){
+      setHasBeenGreeted(false)
+    }
+  },[location])
+
   return (
     <div className="App">
-      {/* <Navbar /> */}
 
       <Routes>
-        <Route path="/home" element={<HomePage />}/>
+        <Route path="/home" element={<IsPrivate><HomePage /></IsPrivate>}/>
         <Route
           path="/profile"
           element={
@@ -82,18 +96,10 @@ function App() {
           }
         />
         <Route
-          path="/tasksPoints"
-          element={
-            <IsPrivate>
-              <TasksPointsForm />
-            </IsPrivate>
-          }
-        />
-        <Route
           path="/tasksForm"
           element={
             <IsPrivate>
-              <TasksForm />
+              <TasksFormPage />
             </IsPrivate>
           }
         />
@@ -117,12 +123,10 @@ function App() {
         <Route
           path="/login"
           element={
-            <IsAnon>
-              <LoginPage />
-            </IsAnon>
+            <IsAnon><LoginPage /></IsAnon>
           }
         />
-        <Route path="/" element={<GetStarted />} />
+        <Route path="/" element={<IsAnon><GetStarted /></IsAnon>} />
       </Routes>
     </div>
   );

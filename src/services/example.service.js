@@ -20,13 +20,13 @@ class ExampleService {
   }
 
   // POST /api/examples
-  createOne = async (requestBody) => {
-    return this.api.post('/api/examples', requestBody);
+  createOne = async (id, requestBody) => {
+    return this.api.post(`/task/${id}/new`, requestBody);
   }
 
   // GET /api/examples
-  getAll = async () => {
-    return this.api.get('/api/examples');
+  getAll = async (id) => {
+    return this.api.get(`/task/${id}`);
   }
 
   // GET /api/examples/:id
@@ -36,12 +36,16 @@ class ExampleService {
 
   // PUT /api/examples/:id
   updateOne = async (id, requestBody) => {
-    return this.api.put(`/api/examples/${id}`, requestBody);
+    return this.api.put(`/task/edit/${id}`, requestBody);
+  }
+
+  createCouple = async (requestBody) => {
+    return this.api.post(`/couple/new`, requestBody);
   }
 
   // DELETE /api/examples/:id
-  deleteProject = async (id) => {
-    return this.api.delete(`/api/examples/${id}`);
+  deleteTask = async (id) => {
+    return this.api.delete(`/task/delete/${id}`);
   } 
 
 
