@@ -147,7 +147,7 @@ function Ruleta() {
       }
   return (
     <>
-    <Navbar/>
+ 
     <title>Sorteo</title>
       <body>
         <label for="numero">Ingrese un número:</label>
@@ -173,7 +173,7 @@ function Ruleta() {
           </table>
         </div>
       </body>
-      <Menu/>
+      
     </>
   );
 }
