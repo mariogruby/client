@@ -18,13 +18,19 @@ export default function Avatar(){
       }, 1000);
       return () => clearInterval(interval);
     },[count])
+
+
+    useEffect(()=>{
+      
+    },[])
     return(
         <div className="animate__animated animate__zoomIn">
         <div>
-        {path !== "/settings" && <img src={sparksL} className={`sparks spark-l ${bounce ? "animate__animated animate__flash" : null}`}/>}
-        <img className="avatar-img mt-5 mb-3" src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"/>
-        {/* <img className="avatar-img mt-5 mb-3" src="https://thumbs.dreamstime.com/b/vector-de-perfil-avatar-predeterminado-foto-usuario-medios-sociales-icono-183042379.jpg"/> */}
-        {path !== "/settings" && <img src={sparksR} className={`sparks spark-r ${bounce ? "animate__animated animate__flash" : null}`}/>}
+        {/* {path !== "/settings" && <img src={sparksL} className={`sparks spark-l ${bounce ? "animate__animated animate__flash" : null}`}/>} */}
+        <img src={sparksL} className={`sparks spark-l ${bounce ? "animate__animated animate__flash" : null}`}/>
+        <img className="avatar-img mt-5 mb-3" src="https://thumbs.dreamstime.com/b/vector-de-perfil-avatar-predeterminado-foto-usuario-medios-sociales-icono-183042379.jpg"/>
+        {/* {path !== "/settings" && <img src={sparksR} className={`sparks spark-r ${bounce ? "animate__animated animate__flash" : null}`}/>} */}
+        <img src={sparksR} className={`sparks spark-r ${bounce ? "animate__animated animate__flash" : null}`}/>
         </div>
         {path !== "/settings" && <><h5 className="avatar-text">Puntos</h5>
         <h1 className="avatar-text points">152</h1></>}

@@ -4,7 +4,8 @@ const TasksContext = React.createContext();
 
 function TasksProviderWrapper(props) {
   const [tasks, setTasks] = useState([])
-  console.log("INSIDE TASK CONTEXT!!!")
+ 
+
   return (
     <TasksContext.Provider
       value={{tasks, setTasks}}

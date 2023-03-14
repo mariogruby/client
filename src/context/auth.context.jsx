@@ -7,6 +7,7 @@ function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [coupleCreated , setCoupleCreated] = useState(false)
+  const [tasksCreated , setTasksCreated] = useState(false)
   const [hasBeenGreeted, setHasBeenGreeted] = useState(false)
   const [user, setUser] = useState(null);
   const [count, setCount] = useState(0)
@@ -71,7 +72,7 @@ function AuthProviderWrapper(props) {
     // This effect runs when the application and the AuthProviderWrapper component load for the first time.
     authenticateUser();
   }, []);
-
+console.log("INSIDE AUTH CONTEXT!", user)
   return (
     <AuthContext.Provider
       value={{
@@ -81,6 +82,8 @@ function AuthProviderWrapper(props) {
         count,
         setCoupleCreated,
         setHasBeenGreeted,
+        tasksCreated,
+        setTasksCreated,
         hasBeenGreeted,
         isLoading,
         user,

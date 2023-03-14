@@ -8,7 +8,7 @@ import { TasksProviderWrapper } from "./context/tasks.context";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-console.log("INSIDE INDEX.JS!!!!")
+
 root.render(
   <Router>
     <AuthProviderWrapper>

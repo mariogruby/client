@@ -10,15 +10,17 @@ export default function PointsForm({speeds, randomNum, bounce, item, setTasks, t
     const handleChange = event => {
       const value = Math.max(min, Math.min(max, Number(event.target.value)));
       setValue(value);
-    //   setTasks((prev)=>{
-    //     prev.map((obj)=>{
-    //         if(obj.title===item){
-    //             obj.value=value
-    //         }
-    //     })
-    //   })
+      setTasks((prev)=>{
+        let copy = [...prev]
+        copy.map((obj)=>{
+            if(obj.title===item){
+                obj.value=value
+            }
+        })
+        return copy
+      })
     };
-    console.log(tasks)
+
     return (
         <div className={`inputPointsContainer ${speeds[randomNum]} ${bounce ? `animate__animated animate__jello` : null}`}>
         <div className="input-group mb-3 input-points">

@@ -12,20 +12,25 @@ import "./Settings.css"
 
 export default function Settings(){
 let navigate = useNavigate()
-const { setCoupleCreated } = useContext(AuthContext);
+const { setCoupleCreated, setTasksCreated } = useContext(AuthContext);
 const { user, setUser } = useContext(AuthContext);
 const [couple, setCouple] = useState({id:user._id, coupleName:"", userName:""})
+const [editView, setEditView] = useState(user && user.couple && user.couple.task.length)
 
 
 function handleSubmit(event){
     event.preventDefault();
-    exampleService.createCouple({id: couple.id, coupleName: couple.coupleName, userName: couple.userName})
-    .then((data)=>{
-        setUser({...user, couple: data.data})
-        setCoupleCreated(true)
-        navigate("/profile")
-    })
-    .catch((err)=>{console.log(err)})
+    if(editView){
+        exampleService.createCouple({id: couple.id, coupleName: couple.coupleName, userName: couple.userName})
+        .then((data)=>{
+            setUser({...user, couple: data.data})
+            setCoupleCreated(true)
+            navigate("/profile")
+        })
+        .catch((err)=>{console.log(err)})
+    }else{
+        console.log("handle Submit edit view")
+    }  
 }
 
 function handleChange(e){
@@ -61,6 +66,9 @@ function handleChange(e){
             <span class="input-group-text" id="basic-addon1">Username</span>
             <input type="text" class="form-control" placeholder={user.name} aria-label="Username" aria-describedby="basic-addon1" disabled/>
             </div>
+            <div class=" input-group mb-3">
+            <input class="form-control" type="file" id="formFile"/>
+            </div>
             <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Email</span>
             <input type="text" class="form-control" placeholder={user.email} aria-label="Username" aria-describedby="basic-addon1" disabled/>
@@ -69,12 +77,13 @@ function handleChange(e){
             <span class="input-group-text" id="basic-addon1">Pareja</span>
             <input type="text" class="form-control" placeholder={user.couple ? user.couple.coupleName : "No hay una pareja asociada..."} aria-label="Username" aria-describedby="basic-addon1" disabled/>
             </div>
-            <div class="input-group mb-3">
+            <div class="input-group mb-5">
             <span class="input-group-text" id="basic-addon1">Puntos</span>
             <input type="text" class="form-control" placeholder={user.puntos || "0"} aria-label="Username" aria-describedby="basic-addon1" disabled/>
             </div>
             </>}
             </div>
+            {user && user.couple && user.couple.task.length &&<div className="btn-shine-container mb-5"><button className="btn btn-primary animate__animated animate__backInRight mb-2 btn-shine"><span className="shine text-uppercase">Editar</span></button></div>}
             {user && !user.couple && <div className="btn-shine-container mb-5"><button className="btn btn-primary animate__animated animate__backInRight mb-2 btn-shine"><span className="shine text-uppercase">Crear</span></button></div>}
             {user && user.couple && !user.couple.task.length && <Link to={"/tasksForm"}><div className="btn-shine-container mb-5 mt-5"><button className="btn btn-primary animate__animated animate__backInRight mb-2 btn-shine btn-shine-form"><span className="shine shine-form text-uppercase">Completa tus tareas</span></button></div></Link>}
         <Menu/>

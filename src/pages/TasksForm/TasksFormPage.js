@@ -50,7 +50,7 @@ export default function TasksFormPage(){
         setDisplayedTasks([`tasksArr${i}`])
     }
 
-    console.log(tasks)
+console.log(displayedViews)
     return (
         <>
         {displayedViews[0].displayed &&<TasksForm setTasks={setTasks} btns={btns} handleDisplayedTasks={handleDisplayedTasks} setBtns={setBtns} index={0} onButtonClick={handleButtonClick} tasksArr={tasksArr0} tiempo={"Es de mañana..."} img={sun}/>}

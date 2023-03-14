@@ -29,9 +29,13 @@ class ExampleService {
     return this.api.get(`/task/${id}`);
   }
 
+  getPoints = async (id) => {
+    return this.api.get(`/profile/points/${id}`);
+  }
+
   // GET /api/examples/:id
-  getOne = async (id) => {
-    return this.api.get(`/api/examples/${id}`);
+  getOneUser = async (id) => {
+    return this.api.get(`/profile/${id}`);
   }
 
   // PUT /api/examples/:id

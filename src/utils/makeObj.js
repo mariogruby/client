@@ -1,14 +1,15 @@
-export default function makeObj(contentArray){
-if(contentArray.length<6){
+export default function makeObj(arr){
+  let copy = [...arr]
+if(copy.length<6){
     return [{
-        content: contentArray,
+        content: copy,
         display: true
     }]
 }
 let arrayOfObjects = [];
 
-if (contentArray.length % 6 !== 0) {
-  let leftovers = contentArray.length % 6;
+if (copy.length % 6 !== 0) {
+  let leftovers = copy.length % 6;
 
   let leftoversObject = {
     content: [],
@@ -16,12 +17,12 @@ if (contentArray.length % 6 !== 0) {
   };
 
   for (let i = 0; i < leftovers; i++) {
-    leftoversObject.content.push(contentArray.pop());
+    leftoversObject.content.push(copy.pop());
   }
   arrayOfObjects.push(leftoversObject);
 }
 
-while (contentArray.length > 0) {
+while (copy.length > 0) {
   let object = {
     content: [],
     display: false
@@ -29,7 +30,7 @@ while (contentArray.length > 0) {
 
   for (let i = 0; i < 6; i++) {
     
-    object.content.push(contentArray.shift());
+    object.content.push(copy.shift());
   }
 
   arrayOfObjects.push(object);

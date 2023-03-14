@@ -27,44 +27,44 @@ export default function TasksPointsForm({arr, onButtonClick, index}){
     //   return () => clearInterval(interval);
     // },[])
 
-    useEffect(()=>{
-      setObj(makeObj(tasks))
-    }, [])
+    // useEffect(()=>{
+    //   setObj(makeObj(tasks))
+    // }, [])
 
-    useEffect(()=>{
-      if(obj.length){
-      setDisplayed((oldValue)=>{
-        let show;
-        obj.forEach((item)=>{
-          if(item.display){
-            show = item.content
-          }
-        })
-        return show
-      })
-      }
-    },[obj])
+    // useEffect(()=>{
+    //   if(obj.length){
+    //   setDisplayed((oldValue)=>{
+    //     let show;
+    //     obj.forEach((item)=>{
+    //       if(item.display){
+    //         show = item.content
+    //       }
+    //     })
+    //     return show
+    //   })
+    //   }
+    // },[obj])
 
-    function handleClick(){
+    // function handleClick(){
       
-      if(obj.length>1){
-        setObj((prev)=>{
-          const copyWithoutFirstElement = [...obj].slice(1);
-          copyWithoutFirstElement[0].display=true
-          return copyWithoutFirstElement
-        })
-      }else if(obj.length===1){
-        setObj(prev=>{return prev[0].display=true})
-      }else{
-        onButtonClick(index)
-      }
-    }
+    //   if(obj.length>1){
+    //     setObj((prev)=>{
+    //       const copyWithoutFirstElement = [...obj].slice(1);
+    //       copyWithoutFirstElement[0].display=true
+    //       return copyWithoutFirstElement
+    //     })
+    //   }else if(obj.length===1){
+    //     setObj(prev=>{return prev[0].display=true})
+    //   }else{
+    //     onButtonClick(index)
+    //   }
+    // }
 
     function handleSubmit(event){
+      console.log("HOLAAAAAAAAAAAAAA")
       event.preventDefault();
-      console.log("holaaaaaaaaaaaaa")
+      onButtonClick(index)
     }
-
 
     return (
         <>
@@ -78,15 +78,15 @@ export default function TasksPointsForm({arr, onButtonClick, index}){
         <h2>Completa los puntos para cada tarea</h2>
         </div>
         <div className="img-tasks-form-container">
-        {displayed && displayed.map((item, i)=>{
+        {tasks && tasks.map((item, i)=>{
           let randomNum = Math.floor(Math.random() * speeds.length);
         return (<PointsForm randomNum={randomNum} speeds={speeds} bounce={bounce} item={item.title} key={i} isChoosePrizeView={false} handleSubmit={handleSubmit} setTasks={setTasks} tasks={tasks}/>)})}
         </div>
         <div className="tasks-examples-container">
         </div>
         </div>
-        <div className="menu-bottom d-flex justify-content-around animate__animated animate__backInUp tasks-form-button mt-5" onClick={handleClick}>
-            <button className="p-questions-tasks btn" style={{textDecoration:"none", color:"white"}} type="button">Enviar</button>
+        <div className="menu-bottom d-flex justify-content-around animate__animated animate__backInUp tasks-form-button mt-5">
+            <button className="p-questions-tasks btn" style={{textDecoration:"none", color:"white"}}>Enviar</button>
         </div>
       </div>
       </form>
