@@ -40,7 +40,7 @@ export default function ChoosePrize(){
         <div className="d-flex flex-column justify-content-between pp-mini-container align-items-center tasksFormContainer animate__animated animate__zoomIn">
         <div className="questions-container d-flex flex-column justify-content-around mt-3">
         <div className="text-white">
-        <h1>Dejamos lo último para el final...</h1>
+        <h1>Dejamos lo mejor para el final...</h1>
         <h2>¿Cual es tu premio?</h2>
         </div>
         <div className="img-tasks-form-container">
