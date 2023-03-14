@@ -3,15 +3,22 @@ import sparksL from "../../img/sparksL.png"
 import sparksR from "../../img/sparksR.png"
 import { useState, useEffect } from "react"
 import { Link, useLocation } from "react-router-dom"
+import exampleService from "../../services/example.service"
+import { AuthContext } from "../../context/auth.context"
+import { useContext } from "react"
 
 
 export default function Avatar(){
+  const { user } = useContext(AuthContext);
     const location = useLocation();
     const [path, setPath] = useState(location.pathname)
     const [bounce, setBounce] = useState(false)
     const [count, setCount] = useState(0);
+    const [points, setPoints] = useState(0);
+    const hello = "hello"
+
   
-      useEffect(()=>{
+  useEffect(()=>{
       const interval = setInterval(() => {
         setCount(count + 1);
         setBounce(!bounce);
@@ -19,10 +26,16 @@ export default function Avatar(){
       return () => clearInterval(interval);
     },[count])
 
+  useEffect(()=>{
+    exampleService.getPoints(user._id)
+    .then((data)=>{
+      setPoints(data.data)
+    })
+    .catch((err)=>{
 
-    useEffect(()=>{
-      
-    },[])
+    })
+  },[path])
+console.log(points)
     return(
         <div className="animate__animated animate__zoomIn">
         <div>
@@ -33,7 +46,7 @@ export default function Avatar(){
         <img src={sparksR} className={`sparks spark-r ${bounce ? "animate__animated animate__flash" : null}`}/>
         </div>
         {path !== "/settings" && <><h5 className="avatar-text">Puntos</h5>
-        <h1 className="avatar-text points">152</h1></>}
+        <h1 className="avatar-text points">{points}</h1></>}
         </div>
     )
 }

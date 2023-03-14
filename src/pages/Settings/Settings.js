@@ -64,7 +64,7 @@ function handleChange(e){
             {user.couple && <>
             <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Username</span>
-            <input type="text" class="form-control" placeholder={user.name} aria-label="Username" aria-describedby="basic-addon1" disabled/>
+            <input type="text" class="form-control bg-primary" placeholder={user.name} aria-label="Username" aria-describedby="basic-addon1" disabled/>
             </div>
             <div class=" input-group mb-3">
             <input class="form-control" type="file" id="formFile"/>
