@@ -26,13 +26,18 @@ class ExampleService {
 
   // GET /api/examples
   getAll = async (id) => {
-    return this.api.get(`/task/${id}`);
+    return this.api.get(`/task?coupleId=${id}`);
   }
+
 
   // GET /api/examples/:id
   getOne = async (id) => {
     return this.api.get(`/api/examples/${id}`);
   }
+  coupleTask = async(id, requestBody)=>{
+    return this.api.get(`/couple/task/${id}`, requestBody);
+  }
+
 
   // PUT /api/examples/:id
   updateOne = async (id, requestBody) => {

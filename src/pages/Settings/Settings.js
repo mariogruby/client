@@ -19,7 +19,7 @@ let element;
 let tasksFormButton;
 if(!user.couple){
     element = <Alert text={" Es momento de crear tu pareja."} strong={"Hola de nuevo!"}/>
-    tasksFormButton= <div className="btn-shine-container"><button className="btn btn-primary animate__animated animate__backInRight mb-2 btn-shine" onClick={handleCreateCouple}><span className="shine text-uppercase" onClick={handleCreateCouple}>Crear</span></button></div>
+    tasksFormButton= <div className="btn-shine-container"><button className="btn btn-primary animate__animated animate__backInRight mb-2 btn-shine" onClick={handleCreateCouple}></button></div>
 }else{
     if(!user.couple.task.length){
         element = <Alert text={" Aquí puedes elegir las tareas asociadas a tu pareja."} strong={"Hola de nuevo!"}/>
