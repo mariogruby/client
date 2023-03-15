@@ -32,6 +32,7 @@ export default function TaskList() {
                     .then((data) => {
                         console.log("task con el id del usuario",task.user)//este console.log debe devolverme la task con el id del usuario ya vinculado 
                         console.log("Check es false: ", data.data)
+                        console.log("couple id", user.couple._id)
                         console.log("id de usuario",user._id)// este console.log me muestra que si esta obteniendo el id del usuario
                         
                         return exampleService.getAll(user.couple._id)

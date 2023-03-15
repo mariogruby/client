@@ -35,7 +35,7 @@ export default function Avatar(){
 
     })
   },[path])
-console.log(points)
+// console.log(points)
     return(
         <div className="animate__animated animate__zoomIn">
         <div>
