@@ -24,12 +24,15 @@ import { useEffect, useContext } from "react";
 import { AuthContext } from "./context/auth.context";
 
 function App() {
-  const { coupleCreated, setCoupleCreated, hasBeenGreeted, setHasBeenGreeted } = useContext(AuthContext);
+  const { coupleCreated, setCoupleCreated, hasBeenGreeted, setHasBeenGreeted, setTasksCreated, tasksCreated } = useContext(AuthContext);
   let location = useLocation();
 
   useEffect(()=>{
     if(location.pathname !== "/profile" && coupleCreated){
       setCoupleCreated(false)
+    }
+    if(location.pathname !== "/profile" && tasksCreated){
+      setTasksCreated(false)
     }
     if(hasBeenGreeted && location.pathname !== "/profile"){
       setHasBeenGreeted(false)

@@ -12,7 +12,7 @@ const propertyNames = [];
     let result = []
     arr.forEach((element, i) => {
         if(lastChars.includes(`${i}`)){
-            result.push(element)
+            result.push({title: element, value: 0})
         }
     });
     return result

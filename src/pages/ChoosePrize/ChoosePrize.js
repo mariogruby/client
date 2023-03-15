@@ -6,16 +6,22 @@ import TaskFormCard from "../../components/TaskFormCard/TaskFormCard"
 import img from "../../img/gift.gif"
 import TaskListFormButton from "../../components/TaskListFormButton/TaskListFormButton"
 import PointsForm from "../../components/PointsForm/PointsForm"
+import { useContext } from "react";
+import { TasksContext } from "../../context/tasks.context";
+import { AuthContext } from "../../context/auth.context";
+import exampleService from "../../services/example.service"
+
 
 
 export default function ChoosePrize(){
+  const {user, setUser, setTasksCreated} = useContext(AuthContext)
+  const { tasks, setTasks} = useContext(TasksContext);
     const navigate = useNavigate()
     const [btns, setBtns] = useState({})
     const [prize, setPrize] = useState("")
     const [index, setIndex] = useState(0)
     let tasksArr = ["Cena romántica en restaurante de categoría", "Día de spa", "Aventura al aire libre", "Regalo sorpresa"]
-    useEffect(() => {
-        
+    useEffect(() => {     
         setBtns(prevBtns => {
           const updatedBtns = {}
           tasksArr.forEach((item, i) => {
@@ -30,9 +36,19 @@ export default function ChoosePrize(){
     }, [index, btns])
     
     function handleClick(){
-        navigate("/profile")
+      exampleService.createOne(user.couple._id, {tasks, prize, userId: user._id})
+      .then((data)=>{
+        return exampleService.getOneUser(user._id)
+      })
+      .then((data)=>{
+        setUser(data.data)
+        setTasksCreated(true)
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
     }
-
+    
     return (
         <>
         <div className="p-container">
@@ -40,7 +56,7 @@ export default function ChoosePrize(){
         <div className="d-flex flex-column justify-content-between pp-mini-container align-items-center tasksFormContainer animate__animated animate__zoomIn">
         <div className="questions-container d-flex flex-column justify-content-around mt-3">
         <div className="text-white">
-        <h1>Dejamos lo último para el final...</h1>
+        <h1>Dejamos lo mejor para el final...</h1>
         <h2>¿Cual es tu premio?</h2>
         </div>
         <div className="img-tasks-form-container">
@@ -54,7 +70,7 @@ export default function ChoosePrize(){
         </div>
         </div>
         <button type="button" className="menu-bottom d-flex justify-content-around animate__animated animate__backInUp tasks-form-button mt-5" onClick={handleClick}>
-            <p style={{textDecoration:"none"}} className="p-questions-tasks">Finalizar</p>
+            <Link style={{textDecoration:"none"}} to={"/"}><p style={{textDecoration:"none"}} className="p-questions-tasks">Finalizar</p></Link>
         </button>
       </div>
         </div>
