@@ -25,6 +25,9 @@ class ExampleService {
   }
 
   // GET /api/examples
+  // getAll = async (id) => {
+  //   return this.api.get(`/task?coupleId=${id}`);
+  // }
   getAll = async (id) => {
     return this.api.get(`/task/${id}`);
   }
@@ -33,7 +36,7 @@ class ExampleService {
     return this.api.get(`/profile/points/${id}`);
   }
 
-
+  
   // GET /api/examples/:id
   getOneUser = async (id) => {
     return this.api.get(`/profile/${id}`);

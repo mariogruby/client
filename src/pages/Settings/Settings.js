@@ -8,6 +8,8 @@ import Avatar from "../../components/Avatar/Avatar"
 import Alert from "../../components/Alert/Alert"
 import arrow from "../../img/arrow.gif"
 import "./Settings.css"
+import axios from "axios"
+
 
 
 export default function Settings(){
@@ -17,6 +19,25 @@ const { user, setUser } = useContext(AuthContext);
 const [couple, setCouple] = useState({id:user._id, coupleName:"", userName:""})
 const [editView, setEditView] = useState(user && user.couple && user.couple.task.length)
 
+const [selectedFile, setSelectedFile] = useState(null);
+
+const handleFileInputChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
+  
+  const handleUpload = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("avatar", selectedFile);
+      const response = await axios.post(process.env.REACT_APP_SERVER_URL + "/api/upload/"+user._id, formData);
+      console.log(response.data);
+  
+      // Llamada a axios a la ruta que edita el usuario en back y pasarle el response.data
+  
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
 function handleSubmit(event){
     event.preventDefault();
@@ -29,6 +50,8 @@ function handleSubmit(event){
         })
         .catch((err)=>{console.log(err)})
     }else{
+  event.handleFileInputChange()
+  event.handleUpload()
         console.log("handle Submit edit view")
     }  
 }
@@ -67,7 +90,7 @@ function handleChange(e){
             <input type="text" class="form-control bg-primary" placeholder={user.name} aria-label="Username" aria-describedby="basic-addon1" disabled/>
             </div>
             <div class=" input-group mb-3">
-            <input class="form-control" type="file" id="formFile"/>
+            <input class="form-control" type="file" onChange={handleFileInputChange} id="formFile"/>
             </div>
             <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Email</span>
@@ -83,7 +106,7 @@ function handleChange(e){
             </div>
             </>}
             </div>
-            {user && user.couple && user.couple.task.length &&<div className="btn-shine-container mb-5"><button className="btn btn-primary animate__animated animate__backInRight mb-2 btn-shine"><span className="shine text-uppercase">Editar</span></button></div>}
+            {user && user.couple && user.couple.task.length && <div className="btn-shine-container mb-5"><button className="btn btn-primary animate__animated animate__backInRight mb-2 btn-shine"><span className="shine text-uppercase" onClick={handleUpload}>Editar</span></button></div>}
             {user && !user.couple && <div className="btn-shine-container mb-5"><button className="btn btn-primary animate__animated animate__backInRight mb-2 btn-shine"><span className="shine text-uppercase">Crear</span></button></div>}
             {user && user.couple && !user.couple.task.length && <Link to={"/tasksForm"}><div className="btn-shine-container mb-5 mt-5"><button className="btn btn-primary animate__animated animate__backInRight mb-2 btn-shine btn-shine-form"><span className="shine shine-form text-uppercase">Completa tus tareas</span></button></div></Link>}
         <Menu/>
