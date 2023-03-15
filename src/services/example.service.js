@@ -34,11 +34,6 @@ class ExampleService {
   getPoints = async (id) => {
     return this.api.get(`/profile/points/${id}`);
   }
-
-  getPoints = async (id) => {
-    return this.api.get(`/profile/points/${id}`);
-  }
-
   // GET /api/examples/:id
   getOneUser = async (id) => {
     return this.api.get(`/profile/${id}`);
