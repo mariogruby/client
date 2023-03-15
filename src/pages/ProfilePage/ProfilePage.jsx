@@ -16,7 +16,7 @@ function ProfilePage() {
   const { user, coupleCreated, hasBeenGreeted, setHasBeenGreeted, count, setUser, setCount, tasksCreated } = useContext(AuthContext);
   const [profileUser, setProfileUser] = useState(user)
   const [partnerUser, setPartnerUser] = useState(0)
-  const [outcome, setOutcome] = useState("tie")
+  const [outcome, setOutcome] = useState(0)
   const [userProportions, setUserProportions] = useState({height:"160px", width:"160px"})
   const [partnerProportions, setPartnerProportions] = useState({height:"160px", width:"160px"})
 
@@ -42,20 +42,22 @@ useEffect(()=>{
           exampleService.getOneUser(p)
         .then((data)=>{
           setPartnerUser(data.data)
-          if(partnerUser.points > profileUser.points){
-            setUserProportions({height:"100px", width:"100px"})
-            setOutcome("loosing")
-          }else if(partnerUser.points < profileUser.points){
-            setPartnerProportions({height:"100px", width:"100px"})
-            setOutcome("winning")
-          }else{
-            setOutcome("tie")
-          }
-          
         })
         .catch((err)=>{ console.log(err)})
         }
 }, [profileUser])
+
+useEffect(()=>{
+  if(partnerUser.points > profileUser.points){
+    setUserProportions({height:"100px", width:"100px"})
+    setOutcome("loosing")
+  }else if(partnerUser.points < profileUser.points){
+    setPartnerProportions({height:"100px", width:"100px"})
+    setOutcome("winning")
+  }else{
+    setOutcome("tie")
+  }
+}, [partnerUser])
 
   return (
     <>
@@ -65,12 +67,12 @@ useEffect(()=>{
     {tasksCreated && user.couple.task.length && <Alert text={"Ya tienes tu lista de tareas."} strong={"Enhorabuena! "} success={true}/>}
     {!user.couple && <Alert text={" No te olvides de completar la información sobre tu pareja."}/>}
     {user.couple && !coupleCreated && !user.couple.task.length && <Alert text={" Sólo faltan las tareas y estamos listos."}/>}
-    {user.couple ? <div className="d-flex pp-mini-container align-items-center justify-content-center" style={outcome === "winning" || outcome === "loosing"? {height: "30%"} : {height: "37%"}}>
+    {user.couple ? <div className="d-flex pp-mini-container align-items-center justify-content-center" style={outcome === "winning" || outcome === "loosing"? {height: "30%", marginTop: "45px"} : {height: "37%"}}>
     <Avatar isProfileView={true} item={profileUser} outcome={outcome} role={"user"} userProportions={userProportions} setUserProportions={setUserProportions}/>
-    {outcome==="tie"&& <img src={fire} style={{height: "95px"}}/>}
+    {outcome && outcome==="tie"&& <img src={fire} style={{height: "95px"}}/>}
     <Avatar isProfileView={true} item={partnerUser} outcome={outcome} role={"partner"} partnerProportions={partnerProportions} setPartnerProportions={setPartnerProportions}/>
     </div> : <Avatar isProfileView={true} item={profileUser}/>}
-      <div className="d-flex flex-column justify-content-between pp-mini-container align-items-center">
+      <div className="d-flex flex-column justify-content-between pp-mini-container align-items-center" style={outcome === "winning" || outcome === "loosing" ? {marginTop: "45px"} : null}>
       <MinigamesCard/>
       {hasBeenGreeted && <Greeting/>}
     <Menu/>

@@ -30,8 +30,8 @@ export default function Avatar({isProfileView, item, outcome, role, partnerPropo
 
 
     return(
-        <div className="animate__animated animate__zoomIn" style={role==="user"?{marginRight: "25px"}:null}>
-        <div className="d-flex flex-column">
+        <div className="animate__animated animate__zoomIn" style={role==="user"?{marginRight: "25px"}: null }>
+        <div className={`d-flex ${path !== "/settings" ? "flex-column" : "justify-content-center"}`}>
         {role==="user" && outcome === "winning" && <img src={crown} style={{width:"100px", rotate: "-7deg"}}/>}
         {role==="partner" && outcome === "loosing" && <img src={crown} style={{width:"100px", rotate: "-7deg"}}/>}
         {role === "user" && outcome==="loosing" && <img src={looser} style={{width:"80px", marginTop:"82px"}}/>}
