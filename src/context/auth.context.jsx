@@ -72,7 +72,6 @@ function AuthProviderWrapper(props) {
     // This effect runs when the application and the AuthProviderWrapper component load for the first time.
     authenticateUser();
   }, []);
-console.log("INSIDE AUTH CONTEXT!", user)
   return (
     <AuthContext.Provider
       value={{
