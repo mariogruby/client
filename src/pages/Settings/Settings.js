@@ -20,7 +20,7 @@ const [editView, setEditView] = useState(user && user.couple && user.couple.task
 
 function handleSubmit(event){
     event.preventDefault();
-    if(editView){
+    if(!editView){
         exampleService.createCouple({id: couple.id, coupleName: couple.coupleName, userName: couple.userName})
         .then((data)=>{
             setUser({...user, couple: data.data})
