@@ -10,3 +10,7 @@
 .user-logo:hover{
     fill: #3CB38D;
 }
+
+.logout-logo{
+    transform: scale(0.8);
+}

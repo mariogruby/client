@@ -33,7 +33,7 @@ export default function GetStarted(){
             <div className="col-12 gs-space-container gs-lower d-flex flex-column align-items-center justify-content-center">
                 <div className="d-flex flex-column align-items-center">
                 <h3>ConviMillas</h3>
-                <div className="gs-description text-secondary">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</div>
+                <div className="gs-description text-secondary">Un juego que hace que la convivencia sea más entretenida. Gana puntos, gana premios y sobre todo, diviértete!</div>
                 </div>
                 <div className="...">
                 <Link to={"/signup"}><button className="btn btn-primary mb-3 mt-4">EMPEZAR AHORA</button></Link>
