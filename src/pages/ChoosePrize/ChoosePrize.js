@@ -36,13 +36,13 @@ export default function ChoosePrize(){
     }, [index, btns])
     
     function handleClick(){
+      setTasksCreated(true)
       exampleService.createOne(user.couple._id, {tasks, prize, userId: user._id})
       .then((data)=>{
         return exampleService.getOneUser(user._id)
       })
       .then((data)=>{
         setUser(data.data)
-        setTasksCreated(true)
       })
       .catch((err)=>{
         console.log(err)

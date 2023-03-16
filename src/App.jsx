@@ -31,9 +31,6 @@ function App() {
     if(location.pathname !== "/profile" && coupleCreated){
       setCoupleCreated(false)
     }
-    if(location.pathname !== "/profile" && tasksCreated){
-      setTasksCreated(false)
-    }
     if(hasBeenGreeted && location.pathname !== "/profile"){
       setHasBeenGreeted(false)
     }

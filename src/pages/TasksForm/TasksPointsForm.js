@@ -72,7 +72,7 @@ export default function TasksPointsForm({arr, onButtonClick, index}){
         <Navbar/>
         <form onSubmit={handleSubmit}>
         <div className="d-flex flex-column justify-content-between pp-mini-container align-items-center tasksFormContainer animate__animated animate__zoomIn">
-        <div className="questions-container d-flex flex-column justify-content-around mt-3">
+        <div className="questions-container d-flex flex-column justify-content-around mt-3" style={{minHeight: "65vh"}}>
         <div className="text-white">
         <h1>Último paso...<img className="dancing-skeleton" src={img}/></h1>
         <h2>Completa los puntos para cada tarea</h2>
