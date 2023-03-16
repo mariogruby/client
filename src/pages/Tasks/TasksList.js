@@ -35,24 +35,7 @@ function handelSubmit(event){
         console.log("No tienes permiso para editar esta tarea");
       }
     } else {
-      //   exampleService
-      //     .updateOne(task._id, { checked: true, user: user._id }) /// aqui es donde se tiene que actualizar el campo user con el id del usuario
-      //     .then((data) => {
-      //       console.log("task con el id del usuario", task.user); //este console.log debe devolverme la task con el id del usuario ya vinculado
-      //       console.log("Check es false: ", data.data);
-      //       console.log("id de usuario", user._id); // este console.log me muestra que si esta obteniendo el id del usuario
 
-      //       return exampleService.getAll(user.couple._id);
-      //     })
-      //     .then((result) => {
-      //       setTasks(result.data);
-      //     })
-      //     .then(() => {
-      //       return exampleService.updateOne(user._id, { points: prueba });
-      //     })
-      //     .catch((err) => {
-      //       console.log(err);
-      //     });
       exampleService
         .updateOne(task._id, { checked: true, user: user._id })
         .then((data) => {
@@ -60,13 +43,6 @@ function handelSubmit(event){
           console.log("Check es false: ", data.data);
           console.log("id de usuario", user._id);
           console.log("este es task value", task.value);
-
-          //  exampleService.updateOne(user._id, { points: task.value })
-          //   .then((result)=>{
-          //     console.log("este es task value2",result);
-
-          //   })
-
           return exampleService.getAll(user.couple._id);
         })
         .then((result) => {
