@@ -12,8 +12,9 @@ import axios from "axios";
 export default function TaskList() {
   const { user, setTasksCreated ,setUser } = useContext(AuthContext);
   const [tasks, setTasks] = useState(null);
-  const [itemChecked, setItemChecked] = useState(null)
   const [obj, setObj] = useState(null)
+
+
 
   
 
@@ -22,34 +23,19 @@ function handleSubmit(event){
 
 }
 
-  function handleChange(obj) {
-    console.log(obj)
-    setItemChecked(true)
-    setObj(obj)
-    // console.log("ITEM:",item)
-    // if (item.checked) {
-    //   if (user._id == item.user) {
-    //     exampleService
-    //       .updateOne(item._id, { checked: false, user: user._id })
-    //       .then((data) => {
-    //         console.log(data)
-    //       })
-    //       .catch((err) => {
-    //         console.log(err);
-    //       });
-    //   } else {
-    //     console.log("No tienes permiso para editar esta tarea");
-    //   }
-    // } else {
-    //   exampleService
-    //     .updateOne(item._id, { checked: true, user: user._id })
-    //     .then((result) => {
-    //       console.log("Task updated")
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     });
-    // }
+  function handleChange(item) {
+    exampleService
+    .updateOne(item._id, { checked: true, user: user._id })
+    .then((result) => {
+      exampleService.getAll(user.couple._id)
+      .then((data)=>{
+        setTasks(data.data)
+      })
+      .catch((err)=>{console.log(err)})
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   }
 
   useEffect(() => {
@@ -67,6 +53,8 @@ function handleSubmit(event){
     setTasks(user.couple.task)
   }, [user])
 
+
+  console.log(user.couple._id)
   return (
     <>
         <div className="p-container">
@@ -84,28 +72,53 @@ function handleSubmit(event){
         <div className="tasks-examples-container">
         <h2 className="text-white">Tus tareas</h2>
         {tasks && tasks.map((item, i)=>{
+              if(item.checked && item.user!==user._id){
+                return (<>
+                <input
+               disabled={true}
+               className="btn-check"
+               type="checkbox"
+             />
+             <label className="btn mb-3" htmlFor={item._id} style={{marginLeft:"5px", backgroundColor:"#3CB38D"}}>
+               {item.title}
+             </label>
+                 </>)
+              }else if(item.checked && item.user===user._id){
                 return (
                   <>
                  <input
-                disabled={item.checked ? false : true}
+                disabled={true}
                 className="btn-check"
                 type="checkbox"
-                value={itemChecked}
-                id={item._id}
-                defaultChecked={item.checked}
-                onChange={() => handleChange(item)}
               />
-              <label className={`btn mb-3 ${item.checked ? "btn-primary": "btn-secondary"}`} htmlFor={item._id} style={{marginLeft:"5px"}} onClick={() => handleChange(item)}>
+              <label className="btn mb-3" htmlFor={item._id} style={{marginLeft:"5px", backgroundColor:"#ECB22C"}}>
                 {item.title}
               </label>
                   </>
-                )})} 
+                )
+              }else if(!item.checked){
+                return (
+                  <>
+                 <input
+                disabled={item.checked ? true : false}
+                className="btn-check"
+                type="checkbox"
+                value={obj}
+                id={item._id}
+                defaultChecked={item.checked}
+                // onChange={() => handleChange(item)}
+              />
+              <label className={`btn mb-3 btn-primary`} htmlFor={item._id} style={{marginLeft:"5px"}} onClick={() => handleChange(item)}>
+                {item.title}
+              </label>
+                  </>
+                )
+              }
+})} 
         </div>
         </form>
         </div>
-        <button type="button" className="menu-bottom d-flex justify-content-around animate__animated animate__backInUp tasks-form-button mt-5">
-            <Link style={{textDecoration:"none"}} to={"/"}><p style={{textDecoration:"none"}} className="p-questions-tasks">Finalizar</p></Link>
-        </button>
+      <Menu/>
       </div>
         </div>
     </>
@@ -140,3 +153,27 @@ function handleSubmit(event){
   </ul>
 </form>
 <Menu /> */}
+
+// if (item.checked) {
+//   if (user._id == item.user) {
+//     exampleService
+//       .updateOne(item._id, { checked: false, user: user._id })
+//       .then((data) => {
+//         console.log(data)
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//   } else {
+//     console.log("No tienes permiso para editar esta tarea");
+//   }
+// } else {
+//   exampleService
+//     .updateOne(item._id, { checked: true, user: user._id })
+//     .then((result) => {
+//       console.log("Task updated")
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// }

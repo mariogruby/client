@@ -61,7 +61,6 @@ export default function TasksPointsForm({arr, onButtonClick, index}){
     // }
 
     function handleSubmit(event){
-      console.log("HOLAAAAAAAAAAAAAA")
       event.preventDefault();
       onButtonClick(index)
     }
