@@ -30,7 +30,7 @@ const handleFileInputChange = (event) => {
   function handleUpload(){
     const formData = new FormData();
     formData.append("avatar", selectedFile);
-    axios.post(process.env.REACT_APP_SERVER_URL + "api/upload/"+user._id, formData)
+    axios.post(process.env.REACT_APP_SERVER_URL + "/api/upload/"+user._id, formData)
     .then((response)=>{
       if(response){
         navigate("/")
