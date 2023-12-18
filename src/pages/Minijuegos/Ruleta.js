@@ -1,4 +1,4 @@
-import "./Ruleta.css";
+import "./ruleta.css";
 import { useRef, useState, useEffect } from "react";
 
 function Ruleta() {
