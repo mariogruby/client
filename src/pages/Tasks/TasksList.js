@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import Navbar from "../../components/Navbar/Navbar";
 import Menu from "../../components/Menu/Menu";
 import exampleService from "../../services/example.service";

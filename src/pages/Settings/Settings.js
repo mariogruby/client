@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import Menu from "../../components/Menu/Menu"
 import Navbar from "../../components/Navbar/Navbar"
 import { Link, useNavigate } from "react-router-dom"

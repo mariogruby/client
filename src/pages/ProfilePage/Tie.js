@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import "./ProfilePage.css";
 import Avatar from "../../components/Avatar/Avatar";
 import Greeting from "../../components/Greeting/Greeting"

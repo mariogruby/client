@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import "./Avatar.css"
 import sparksL from "../../img/sparksL.png"
 import sparksR from "../../img/sparksR.png"

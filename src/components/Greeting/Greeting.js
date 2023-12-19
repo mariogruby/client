@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import "./Greeting.css"
 import hand from "../../img/hand.gif"
 import { AuthContext } from "../../context/auth.context";

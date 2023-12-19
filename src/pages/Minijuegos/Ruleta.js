@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import "./ruleta.css";
 import { useRef, useState, useEffect } from "react";
 

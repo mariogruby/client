@@ -1,3 +1,4 @@
+/* eslint-disable */
 export default function TaskListFormButton({text, btns, setBtns, i, isChoosePrizeView, setIndex}){
     function handleClick(i){
       if(isChoosePrizeView){

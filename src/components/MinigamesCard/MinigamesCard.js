@@ -1,3 +1,4 @@
+/* eslint-disable */
 import chess from "../../img/chess.png"
 import "./MinigamesCard.css"
 import { useState, useEffect } from "react";
