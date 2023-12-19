@@ -18,7 +18,7 @@ Cada jugador tendra una vista con los resultados de los minijuegos, victorias y 
 --------------
 ## Deployment 
 
-Puede verificar la applicacion completamente implementada  [aqui](https://genuine-hotteok-2cd492.netlify.app/)
+Puede verificar la applicacion completamente implementada  [aqui](https://convimillas-app.netlify.app/)
 
 
 ## Installation Guide
