@@ -10,6 +10,7 @@ function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [loading, setLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState(undefined);
   // const [bounce, setBounce] = useState(false)
   // const [count, setCount] = useState(0);
@@ -22,6 +23,7 @@ function SignupPage() {
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
+    setLoading(true)
     // Create an object representing the request body
     const requestBody = { email, password, name };
 
@@ -41,12 +43,14 @@ function SignupPage() {
       .signup(requestBody)
       .then((response) => {
         // If the POST request is successful redirect to the login page
+        setLoading(false)
         navigate("/login");
       })
       .catch((error) => {
         // If the request resolves with an error, set the error message in the state
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
+        setLoading(false)
       });
   };
 
@@ -83,7 +87,7 @@ function SignupPage() {
     onChange={handlePassword}></input>
       </div>
     </div>
-    <div className="animate__animated animate__backInUp su-links"><button className='ghost-round mt-5 su-btn' id="ghost-round">Crear Cuenta</button>
+    <div className="animate__animated animate__backInUp su-links"><button className='ghost-round mt-5 su-btn' id="ghost-round">{loading ? "Cargando..." : "Crear Cuenta"}</button>
     <Link to={"/login"}><p className="text-primary">¿Ya tienes una cuenta?</p></Link>
     {errorMessage && <p classNameName="error-message">{errorMessage}</p>}
     </div> 

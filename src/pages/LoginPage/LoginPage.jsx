@@ -9,6 +9,7 @@ import logo from "../../img/logo.png"
 
 function LoginPage() {
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false)
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
@@ -21,6 +22,7 @@ function LoginPage() {
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
+    setLoading(true)
     const requestBody = { email, password };
 
     // Send a request to the server using axios
@@ -39,11 +41,13 @@ function LoginPage() {
         storeToken(response.data.authToken);
         authenticateUser();
         navigate("/profile");
+        setLoading(false)
       })
       .catch((error) => {
         // If the request resolves with an error, set the error message in the state
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
+        setLoading(false)
       });
   };
 
@@ -72,7 +76,7 @@ function LoginPage() {
     onChange={handlePassword}></input>
           </div>
         </div>
-        <div className="animate__animated animate__backInUp su-links"><button className='ghost-round mt-5 su-btn' id="ghost-round">Acceder</button>
+        <div className="animate__animated animate__backInUp su-links"><button className='ghost-round mt-5 su-btn' id="ghost-round">{loading ? "Cargando..." : "Acceder"}</button>
         <Link to={"/signup"}><p className="text-primary">¿No tienes una cuenta aún?</p></Link></div>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
       </div>
